@@ -1,0 +1,6 @@
+{
+  "@@locale": "en",
+  "title": "Flutter Counter",
+  "counterText": "You have pushed the button this many times:",
+  "tooltipText": "Increment"
+}
