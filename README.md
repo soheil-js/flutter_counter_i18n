@@ -52,7 +52,7 @@ Run the following command in the terminal:
 flutter gen-l10n
 ```
 
-This will generate the required localization helper files under `.dart_tool/flutter_gen/gen_l10n/`.
+This will generate the required localization helper files under `lib/l10n/`.
 
 ### 4️⃣ Update your `MaterialApp`
 
