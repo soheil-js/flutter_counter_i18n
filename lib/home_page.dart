@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_counter_i18n/l10n/app_localizations.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  const HomePage({super.key, required this.onToggleLocale});
+
+  final VoidCallback onToggleLocale;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -24,6 +26,13 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(loc.title),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.language),
+            onPressed: widget.onToggleLocale,
+          ),
+          SizedBox(width: 16),
+        ],
       ),
       body: Center(
         child: Column(

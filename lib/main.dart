@@ -6,8 +6,23 @@ void main() {
   runApp(const Application());
 }
 
-class Application extends StatelessWidget {
+class Application extends StatefulWidget {
   const Application({super.key});
+
+  @override
+  State<Application> createState() => _ApplicationState();
+}
+
+class _ApplicationState extends State<Application> {
+  Locale _locale = const Locale('en');
+
+  void _toggleLocale() {
+    setState(() {
+      _locale = _locale.languageCode == 'en'
+          ? const Locale('fa')
+          : const Locale('en');
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +34,8 @@ class Application extends StatelessWidget {
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      locale: Locale('en'),
-      home: const HomePage(),
+      locale: _locale,
+      home: HomePage(onToggleLocale: _toggleLocale),
     );
   }
 }
